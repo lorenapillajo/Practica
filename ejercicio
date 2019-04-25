@@ -1,0 +1,17 @@
+import sys, glob, os
+
+extensionDictionary = {"c" : "*.[ch]", "java" : "*.java", "python" : "*.py"}
+
+def ficheros(lenguaje):
+     # Analizamos el directorio actual y listamos los ficheros
+     return glob.glob(extensionDictionary[lenguaje])
+
+if __name__ == "__main__":
+     numLineas = 0
+
+     listaFicheros = ficheros("java")
+     for fichero in listaFicheros:
+     f = open(fichero)
+     numLineas += len(f.readlines())
+
+     print numLineas, "lineas"
